@@ -44,6 +44,8 @@ h1 {
     height: 300px;
     margin: auto;
     margin-top: 75px;
+    margin-right: 25px;
+    float: left;
 }
 
 #enemyBox {
@@ -52,6 +54,7 @@ h1 {
     height: 300px;
     margin: auto;
     margin-top: 75px;
+    float: left;
 }
 
 #topBox {
