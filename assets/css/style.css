@@ -1,0 +1,33 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.imgBox {
+    float: left;
+    position: relative;
+    padding: 10px;
+}
+
+.imgText {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+}
+
+#topBox {
+    border: 2.5px solid black;
+    width: fit-content;
+    height: 300px;
+    margin: auto;
+    margin-top: 75px;
+}
+
+#botBox {
+    border: 2.5px solid black;
+    width: 1180px;
+    height: 300px;
+    margin: auto;
+    margin-top: 20px;
+}
