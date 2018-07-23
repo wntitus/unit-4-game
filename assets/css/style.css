@@ -3,6 +3,13 @@
     box-sizing: border-box;
 }
 
+h1 {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .imgBox {
     float: left;
     position: relative;
@@ -13,7 +20,18 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    color: white;
+    color: #ff4d4d;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-top: 7.5px;
+    margin-left: 7.5px;
+}
+
+#fighterBox {
+    border: 2.5px solid black;
+    width: fit-content;
+    height: 300px;
+    margin: auto;
+    margin-top: 75px;
 }
 
 #topBox {
@@ -26,8 +44,12 @@
 
 #botBox {
     border: 2.5px solid black;
-    width: 1180px;
+    width: 1185px;
     height: 300px;
     margin: auto;
     margin-top: 20px;
+}
+
+img:hover {
+    opacity: .3;
 }
