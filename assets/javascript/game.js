@@ -5,7 +5,7 @@ $(document).ready(function(){
     var charOne = {
         name: "placeholder1",
         hp : 200,
-        ap: 8,
+        ap: 4,
         cAP: 15,
         charChoice: false,
         enemyChoice: false
@@ -13,7 +13,7 @@ $(document).ready(function(){
     var charTwo = {
         name: "placeholder2",
         hp : 300,
-        ap: 12,
+        ap: 8,
         cAP: 10,
         charChoice: false,
         enemyChoice: false
@@ -21,7 +21,7 @@ $(document).ready(function(){
     var charThree = {
         name: "placeholder3",
         hp: 250,
-        ap: 18,
+        ap: 10,
         cAP: 20,
         charChoice: false,
         enemyChoice: false
@@ -60,11 +60,14 @@ $(document).ready(function(){
     updateStats(4);
 
 
+    // LOGIC FOR CHARACTER ONE PLAYER CHOICE
+
     $("#imgOne").on("click", function() {
         if (charSelected === true) {
             return;
         }
         $('<div id = "fighterBox">').insertAfter("header");
+        $('<h3>YOUR FIGHTER</h3>').insertAfter("header");
         $("#imgOne").appendTo("#fighterBox");
         charSelected = true;
         charOne.charChoice = true;
@@ -78,14 +81,33 @@ $(document).ready(function(){
         if (charSelected === true) {
             if (charOne.charChoice === true) {
                 $("#imgTwo").on("click", function() {
+                    if (charTwo.enemyChoice === true) {
+                        return;
+                    }
                     $('<div id = "enemyBox">').insertAfter("#fighterBox");
+                    $('<h3>YOUR ENEMY</h3>').insertAfter("#fighterBox");
                     $("#imgTwo").appendTo("#enemyBox");
-                    charTwo.enemyChoice === true;
+                    charTwo.enemyChoice = true;
                 })
             }
         }
     })
 
+    $("#imgTwo").on("click", function() {
+        if (charTwo.enemyChoice === true) {
+            charOne.hp = charOne.hp - charTwo.cAP;
+            charTwo.hp = charTwo.hp - charOne.ap;
+            charOne.ap = charOne.ap + 8;
+            updateStats(1);
+            updateStats(2);
+            if (charOne.hp === 0 || charOne.hp < 0) {
+                alert('losetest');
+            } else if (charTwo.hp === 0 || charTwo.hp < 0) {
+                alert('wintest');
+            }
+        }
+    })
+    /////////////////////////////////////////////////////////////
     $("#imgTwo").on("click", function() {
         if (charSelected === true) {
             return;
@@ -93,11 +115,24 @@ $(document).ready(function(){
         $('<div id = "fighterBox">').insertAfter("header");
         $("#imgTwo").appendTo("#fighterBox");
         charSelected = true;
+        charTwo.charChoice = true;
         $("#imgOne").appendTo("#botBox");
         $("#imgThree").appendTo("#botBox");
         $("#imgFour").appendTo("#botBox");
         $("#topBox").detach();
         $("#botBox").width("fit-content");
+        if (charSelected === true) {
+            if (charTwo.charChoice === true) {
+                $("#imgOne").on("click", function() {
+                    if (charOne.enemyChoice === true){
+                        return;
+                    }
+                    $('<div id = "enemyBox">').insertAfter("#fighterBox");
+                    $("#imgOne").appendTo("#enemyBox");
+                    charOne.enemyChoice = true;
+                })
+            }
+        }
     })
 
     $("#imgThree").on("click", function() {
