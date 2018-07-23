@@ -34,9 +34,19 @@ h1 {
     font-family: 'Roboto Condensed', sans-serif;
     margin-bottom: 7.5px;
     margin-left: 7.5px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 #fighterBox {
+    border: 2.5px solid black;
+    width: fit-content;
+    height: 300px;
+    margin: auto;
+    margin-top: 75px;
+}
+
+#enemyBox {
     border: 2.5px solid black;
     width: fit-content;
     height: 300px;

@@ -6,25 +6,33 @@ $(document).ready(function(){
         name: "placeholder1",
         hp : 200,
         ap: 8,
-        cAP: 15
+        cAP: 15,
+        charChoice: false,
+        enemyChoice: false
     };
     var charTwo = {
         name: "placeholder2",
         hp : 300,
         ap: 12,
-        cAP: 10
+        cAP: 10,
+        charChoice: false,
+        enemyChoice: false
     };
     var charThree = {
         name: "placeholder3",
         hp: 250,
         ap: 18,
-        cAP: 20
+        cAP: 20,
+        charChoice: false,
+        enemyChoice: false
     };
     var charFour = {
         name: "placeholder4",
         hp: 150,
         ap: 10,
-        cAP: 30
+        cAP: 30,
+        charChoice: false,
+        enemyChoice: false
     };
 
     var charSelected = false;
@@ -59,11 +67,23 @@ $(document).ready(function(){
         $('<div id = "fighterBox">').insertAfter("header");
         $("#imgOne").appendTo("#fighterBox");
         charSelected = true;
+        charOne.charChoice = true;
+        console.log(charSelected);
+        console.log(charOne);
         $("#imgTwo").appendTo("#botBox");
         $("#imgThree").appendTo("#botBox");
         $("#imgFour").appendTo("#botBox");
         $("#topBox").detach();
         $("#botBox").width("fit-content");
+        if (charSelected === true) {
+            if (charOne.charChoice === true) {
+                $("#imgTwo").on("click", function() {
+                    $('<div id = "enemyBox">').insertAfter("#fighterBox");
+                    $("#imgTwo").appendTo("#enemyBox");
+                    charTwo.enemyChoice === true;
+                })
+            }
+        }
     })
 
     $("#imgTwo").on("click", function() {
@@ -107,5 +127,8 @@ $(document).ready(function(){
         $("#topBox").detach();
         $("#botBox").width("fit-content");
     })
+
+
+
 
 });
