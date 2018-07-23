@@ -60,4 +60,20 @@ $(document).ready(function(){
         charSelected = true;
     })
 
+    $("#imgThree").on("click", function() {
+        if (charSelected === true) {
+            return;
+        }
+        $("#imgThree").appendTo("#fighterBox");
+        charSelected = true;
+    })
+
+    $("#imgFour").on("click", function() {
+        if (charSelected === true) {
+            return;
+        }
+        $("#imgFour").appendTo("#fighterBox");
+        charSelected = true;
+    })
+
 });
