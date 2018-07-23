@@ -26,6 +26,16 @@ h1 {
     margin-left: 7.5px;
 }
 
+.imgName {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #ff4d4d;
+    font-family: 'Roboto Condensed', sans-serif;
+    margin-bottom: 7.5px;
+    margin-left: 7.5px;
+}
+
 #fighterBox {
     border: 2.5px solid black;
     width: fit-content;
