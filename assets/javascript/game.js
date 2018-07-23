@@ -8,7 +8,8 @@ $(document).ready(function(){
         ap: 4,
         cAP: 15,
         charChoice: false,
-        enemyChoice: false
+        enemyChoice: false,
+        defeated: false
     };
     var charTwo = {
         name: "placeholder2",
@@ -16,7 +17,8 @@ $(document).ready(function(){
         ap: 8,
         cAP: 10,
         charChoice: false,
-        enemyChoice: false
+        enemyChoice: false,
+        defeated: false,
     };
     var charThree = {
         name: "placeholder3",
@@ -24,7 +26,8 @@ $(document).ready(function(){
         ap: 10,
         cAP: 20,
         charChoice: false,
-        enemyChoice: false
+        enemyChoice: false,
+        defeated: false,
     };
     var charFour = {
         name: "placeholder4",
@@ -32,7 +35,8 @@ $(document).ready(function(){
         ap: 10,
         cAP: 30,
         charChoice: false,
-        enemyChoice: false
+        enemyChoice: false,
+        defeated: false
     };
 
     var charSelected = false;
@@ -81,13 +85,22 @@ $(document).ready(function(){
         if (charSelected === true) {
             if (charOne.charChoice === true) {
                 $("#imgTwo").on("click", function() {
-                    if (charTwo.enemyChoice === true) {
+                    if (charTwo.enemyChoice === true || charThree.enemyChoice === true) {
                         return;
                     }
                     $('<div id = "enemyBox">').insertAfter("#fighterBox");
-                    $('<h3>YOUR ENEMY</h3>').insertAfter("#fighterBox");
+                    $('<h3 id = "enemyHead">YOUR ENEMY</h3>').insertAfter("#fighterBox");
                     $("#imgTwo").appendTo("#enemyBox");
                     charTwo.enemyChoice = true;
+                })
+                $("#imgThree").on("click", function() {
+                    if (charThree.enemyChoice === true) {
+                        return;
+                    }
+                    $('<div id = "enemyBox">').insertAfter("#fighterBox");
+                    $('<h3 id = "enemyHead">YOUR ENEMY</h3>').insertAfter("#fighterBox");
+                    $("#imgThree").appendTo("#enemyBox");
+                    charThree.enemyChoice = true;
                 })
             }
         }
@@ -104,6 +117,29 @@ $(document).ready(function(){
                 alert('losetest');
             } else if (charTwo.hp === 0 || charTwo.hp < 0) {
                 alert('wintest');
+                $("#imgTwo").detach();
+                $("#enemyBox").detach();
+                $("#enemyHead").detach();
+                charTwo.defeated = true;
+            }
+        }
+    })
+
+    $("#imgThree").on("click", function() {
+        if (charThree.enemyChoice === true) {
+            charOne.hp = charOne.hp - charThree.cAP;
+            charThree.hp = charThree.hp - charOne.ap
+            charOne.ap = charOne.ap + 8;
+            updateStats(1);
+            updateStats(3);
+            if (charOne.hp === 0 || charOne.hp < 0) {
+                alert('losetest');
+            } else if (charThree.hp === 0 || charThree.hp < 0) {
+                alert('wintest');
+                $("#imgThree").detach();
+                $("#enemyBox").detach();
+                $("#enemyHead").detach();
+                charThree.defeated = true;
             }
         }
     })
